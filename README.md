@@ -1,2 +1,2 @@
 # Langcademy
-## ASP.NET MVC Project
+## ASP.NET MVC Project for Telerik Academy course

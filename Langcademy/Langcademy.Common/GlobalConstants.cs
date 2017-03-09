@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Langcademy.Common
+﻿namespace Langcademy.Common
 {
     public class GlobalConstants
     {
+        public const string AdministratorRoleName = "Administrator";
+        public const int PasswordMinLength = 1;
     }
 }

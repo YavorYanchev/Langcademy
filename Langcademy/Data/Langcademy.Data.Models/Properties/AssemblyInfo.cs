@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Langcademy.Common")]
+[assembly: AssemblyTitle("Langcademy.Data.Models")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Langcademy.Common")]
+[assembly: AssemblyProduct("Langcademy.Data.Models")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("701f322f-aa01-4ddc-90b6-6935981c1e73")]
+[assembly: Guid("048df115-fad9-4bd4-9ba0-d99dfd32a2b2")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -30,6 +30,7 @@ namespace Langcademy.Data.Models
 
             set { this.wordsToTranslate = value; }
         }
+
         public virtual ICollection<TopicSolution> Solutions
         {
             get { return this.solutions; }

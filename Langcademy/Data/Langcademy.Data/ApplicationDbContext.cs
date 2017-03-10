@@ -17,6 +17,14 @@
         {
         }
 
+        public IDbSet<Topic> Topics { get; set; }
+
+        public IDbSet<WordToTranslate> WordsToTranslate { get; set; }
+
+        public IDbSet<Answer> Answers { get; set; }
+
+        public IDbSet<TopicSolution> TopicSolutions { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

@@ -68,6 +68,10 @@
     <Compile Include="Migrations\201703101139300_InitialMigrations.Designer.cs">
       <DependentUpon>201703101139300_InitialMigrations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703101813187_TranslationPropertyAdded.cs" />
+    <Compile Include="Migrations\201703101813187_TranslationPropertyAdded.Designer.cs">
+      <DependentUpon>201703101813187_TranslationPropertyAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -105,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703101139300_InitialMigrations.resx">
       <DependentUpon>201703101139300_InitialMigrations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703101813187_TranslationPropertyAdded.resx">
+      <DependentUpon>201703101813187_TranslationPropertyAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

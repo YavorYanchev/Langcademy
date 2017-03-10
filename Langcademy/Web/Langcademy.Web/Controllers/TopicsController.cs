@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Langcademy.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,7 +14,14 @@ namespace Langcademy.Web.Controllers
         {
             return View();
         }
+
         public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Topic topic)
         {
             return View();
         }

@@ -18,6 +18,8 @@ namespace Langcademy.Data.Models
 
         public string Text { get; set; }
 
+        public string Translation { get; set; }
+
         public string ResultDescription { get; set; }
 
         public virtual ICollection<Answer> Answers

@@ -6,6 +6,10 @@
 
 [![Build Status](http://localhost:8080/buildStatus/icon?job=automatic build)](http://localhost:8080/job/automatic build)
 
+[![Build Status](http://localhost:8080/job/automatic%20build/badge/icon)](http://localhost:8080/job/automatic%20build/)
+
+[![Build Status](http://localhost:8080/buildStatus/icon?job=automatic build)](http://localhost:8080/job/automatic%20build/)
+
 This document describes the **final project assignment** for the **ASP.NET MVC** course at Telerik Academy.
 
 ## Project Description

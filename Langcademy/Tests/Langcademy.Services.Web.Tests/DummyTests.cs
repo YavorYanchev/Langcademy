@@ -28,5 +28,11 @@ namespace Langcademy.Services.Web.Tests
             Assert.AreEqual(2, 5 - 3);
         }
 
+        [Test]
+        public void DummyTest4()
+        {
+            Assert.AreEqual(3, 5 - 2);
+        }
+
     }
 }

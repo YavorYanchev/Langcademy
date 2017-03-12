@@ -13,6 +13,8 @@
     using Data.Common;
 
     using Services.Web;
+    using Services.Data;
+    using Services.Data.Contracts;
 
     public static class AutofacConfig
     {
@@ -62,6 +64,10 @@
 
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
                 .AssignableTo<BaseController>().PropertiesAutowired();
+
+            //------------------------
+            builder.RegisterAssemblyTypes(Assembly.GetAssembly(typeof(ITopicsService))).AsImplementedInterfaces();
+                
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Langcademy.Data.Models;
+using Langcademy.Services.Data.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,13 @@ namespace Langcademy.Web.Controllers
 {
     public class TopicsController : Controller
     {
+        private readonly ITopicsService topics;
+
+        public TopicsController(ITopicsService topics)
+        {
+            this.topics = topics;
+        }
+
         // GET: Topics
         public ActionResult Index()
         {
@@ -23,7 +31,8 @@ namespace Langcademy.Web.Controllers
         [HttpPost]
         public ActionResult Create(Topic topic)
         {
-            return View();
+            this.topics.Add(topic);
+            return RedirectToAction("Index");
         }
     }
 }

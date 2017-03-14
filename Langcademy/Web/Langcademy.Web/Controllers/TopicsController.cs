@@ -23,10 +23,10 @@ namespace Langcademy.Web.Controllers
             return View();
         }
 
-        public ActionResult Index(int id)
-        {
-            return View();
-        }
+        //public ActionResult Index(int id)
+        //{
+        //    return View();
+        //}
 
         public ActionResult Create()
         {
@@ -50,6 +50,14 @@ namespace Langcademy.Web.Controllers
         {
             var topic = this.topics.GetById(id);
             return View(topic);
+        }
+
+        [HttpPost]
+        public ActionResult Solve(Topic topic)
+        {
+            //var topic = this.topics.GetById(id);
+
+            return RedirectToAction("Index");
         }
     }
 }

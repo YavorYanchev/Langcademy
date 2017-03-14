@@ -1,7 +1,19 @@
-﻿
+﻿@model Langcademy.Data.Models.Topic
 @{
     ViewBag.Title = "Solve";
 }
+<form id="topicForm" method="post" class="form-horizontal">
+    @Html.AntiForgeryToken()
 
-<h2>Solve</h2>
+    @foreach (var item in Model.WordsToTranslate)
+    {
+        @*<p>@item.Text</p>
+        <input id="@item.Id" />*@
+        <div class="form-group">
+            <label for="@item.Id">@item.Text</label>
+            <input type="text" name="@item.Text" class="form-control" id="@item.Id">
+        </div>
+    }
+    <input type="submit" value="Submit" />
 
+</form>

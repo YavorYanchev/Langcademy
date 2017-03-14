@@ -46,5 +46,10 @@ namespace Langcademy.Web.Controllers
             return View(topic);
         }
 
+        public ActionResult Solve(int id)
+        {
+            var topic = this.topics.GetById(id);
+            return View(topic);
+        }
     }
 }

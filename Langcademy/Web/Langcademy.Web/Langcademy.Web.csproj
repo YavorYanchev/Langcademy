@@ -291,6 +291,7 @@
     <Content Include="Views\Topics\Create.cshtml" />
     <Content Include="Views\Topics\Index.cshtml" />
     <Content Include="Views\Topics\Details.cshtml" />
+    <Content Include="Views\Topics\Solve.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

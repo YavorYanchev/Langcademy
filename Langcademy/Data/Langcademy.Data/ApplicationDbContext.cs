@@ -9,21 +9,24 @@
     using Microsoft.AspNet.Identity.EntityFramework;
 
     using Langcademy.Data.Models;
+    using Migrations;
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+           
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }
 
-        public IDbSet<Topic> Topics { get; set; }
+        public virtual IDbSet<Topic> Topics { get; set; }
 
-        public IDbSet<WordToTranslate> WordsToTranslate { get; set; }
+        public virtual IDbSet<WordToTranslate> WordsToTranslate { get; set; }
 
-        public IDbSet<Answer> Answers { get; set; }
+        public virtual IDbSet<Answer> Answers { get; set; }
 
-        public IDbSet<TopicSolution> TopicSolutions { get; set; }
+        public virtual IDbSet<TopicSolution> TopicSolutions { get; set; }
 
         public static ApplicationDbContext Create()
         {

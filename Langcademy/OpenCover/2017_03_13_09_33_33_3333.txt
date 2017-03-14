@@ -1,0 +1,8 @@
+Langcademy.Services.Web.Tests.DummyTests.DummyTest1
+Langcademy.Services.Web.Tests.DummyTests.DummyTest2
+Langcademy.Services.Web.Tests.DummyTests.DummyTest3
+Langcademy.Services.Web.Tests.DummyTests.DummyTest4
+Langcademy.Services.Web.Tests.IdentifierProviderTests.EncodingAndDecodingDoesntChangeTheId
+Langcademy.Web.Routes.Tests.AnotherDummyTestsClass.DummyRouteTest1
+Langcademy.Web.Controllers.Tests.DummyTestsForController.FirstDummyTest
+Langcademy.Web.Controllers.Tests.DummyTestsForController.SecondDummyTest

@@ -1,0 +1,4 @@
+Langcademy.Services.Web.Tests.DummyTests.DummyTest1
+Langcademy.Services.Web.Tests.DummyTests.DummyTest2
+Langcademy.Services.Web.Tests.DummyTests.DummyTest3
+Langcademy.Services.Web.Tests.DummyTests.DummyTest4

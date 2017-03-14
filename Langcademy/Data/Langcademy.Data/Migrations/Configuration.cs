@@ -16,21 +16,21 @@
         {
 
 
-            context.Topics.Add(new Topic
-            {
-                Id = 3,
-                Name = "fosjndfgskgn",
-                WordsToTranslate ={
-                new WordToTranslate
-                {
-                    Id=2,
-                    Text="fpskngs",
-                    Translation="daognaofd",
-                    TopicId=3
+            //context.Topics.Add(new Topic
+            //{
+            //    Id = 3,
+            //    Name = "fosjndfgskgn",
+            //    WordsToTranslate ={
+            //    new WordToTranslate
+            //    {
+            //        Id=2,
+            //        Text="fpskngs",
+            //        Translation="daognaofd",
+            //        TopicId=3
 
-                }
-            }
-            });
+            //    }
+            //}
+            //});
         }
     }
 }

@@ -23,6 +23,11 @@ namespace Langcademy.Web.Controllers
             return View();
         }
 
+        public ActionResult Index(int id)
+        {
+            return View();
+        }
+
         public ActionResult Create()
         {
             return View();
@@ -34,5 +39,11 @@ namespace Langcademy.Web.Controllers
             this.topics.Add(topic);
             return RedirectToAction("Index");
         }
+
+        public ActionResult Details(int id)
+        {
+            return RedirectToAction("Index");
+        }
+
     }
 }

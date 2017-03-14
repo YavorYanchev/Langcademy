@@ -31,5 +31,16 @@ namespace Langcademy.Services.Data
             this.topics.Add(topic);
             this.topics.Save();
         }
+
+        public Topic GetById(int id)
+        {
+            var topic = this.topics.GetById(id);
+            if (topic == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            return topic;
+        }
     }
 }

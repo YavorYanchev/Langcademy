@@ -290,6 +290,7 @@
     <Content Include="Scripts\jquery-2.2.0.min.map" />
     <Content Include="Views\Topics\Create.cshtml" />
     <Content Include="Views\Topics\Index.cshtml" />
+    <Content Include="Views\Topics\Details.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -10,5 +10,7 @@ namespace Langcademy.Services.Data.Contracts
     public interface ITopicsService
     {
         void Add(Topic topic);
+
+        Topic GetById(int id);
     }
 }

@@ -42,7 +42,8 @@ namespace Langcademy.Web.Controllers
 
         public ActionResult Details(int id)
         {
-            return RedirectToAction("Index");
+            var topic = this.topics.GetById(id);
+            return View(topic);
         }
 
     }

@@ -61,23 +61,23 @@ namespace Langcademy.Web.Controllers
             //here we calculate the result
             //var wordsByUser = topic.WordsToTranslate.ToArray();
 
-            //var correctTopic = this.topics.GetById(topic.Id);
+            var correctTopic = this.topics.GetById(topic.Id);
             //var words = correctTopic.WordsToTranslate.ToArray();
 
-            //int correctAnswers = 0;
+            int correctAnswers = 0;
+            int numberWords = correctTopic.WordsToTranslate.Count;
+            for (int i = 0; i < numberWords; i++)
+            {
+                if (correctTopic.WordsToTranslate[i].Translation == topic.SelectedTranslations[i].Translation)
+                {
+                    correctAnswers += 1;
+                }
+            }
+            //int num = topic.WordsToTranslate.Count;
 
-            //for (int i = 0; i < correctTopic.WordsToTranslate.Count; i++)
-            //{
-            //    if (wordsByUser[i] == words[i])
-            //    {
-            //        correctAnswers += 1;
-            //    }
-            //}
+            double percent = (correctAnswers * 100 ) / numberWords;
 
-            //double percent = correctAnswers * 100 /
-            //    topic.NumberOfWordsToTranslate;
-
-            //this.TempData["result"] = percent + "% correct answers";
+            this.TempData["result"] = percent + "% correct answers";
             return RedirectToAction("Results");
         }
 

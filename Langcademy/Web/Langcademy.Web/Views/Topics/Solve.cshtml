@@ -7,13 +7,23 @@
 
     @foreach (var item in Model.WordsToTranslate)
     {
-        @*<p>@item.Text</p>
-        <input id="@item.Id" />*@
+        <p>@item.Text</p>
+        <input id="@item.Id" />
         <div class="form-group">
             <label for="@item.Id">@item.Text</label>
             <input type="text" name="@item.Text" class="form-control" id="@item.Id">
         </div>
     }
+
+    @*@for (int i = 0; i < Model.WordsToTranslate.Count; i++)
+    {
+        <div class="form-group">
+            <label for="@Model.WordsToTranslate[i].Id">@Model.WordsToTranslate[i].Text</label>
+            <input type="text" name="@Model.WordsToTranslate[i].Text" class="form-control" id="@item.Id">
+        </div>
+
+    }*@
+
     <input type="submit" value="Submit" />
 
 </form>

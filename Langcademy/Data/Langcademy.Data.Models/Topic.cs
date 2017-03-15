@@ -9,13 +9,13 @@ namespace Langcademy.Data.Models
 {
     public class Topic:BaseModel<int>
     {
-        private ICollection<WordToTranslate> wordsToTranslate;
-        private ICollection<TopicSolution> solutions;
+        private IList<WordToTranslate> wordsToTranslate;
+        private IList<TopicSolution> solutions;
 
         public Topic()
         {
-            this.wordsToTranslate = new HashSet<WordToTranslate>();
-            this.solutions = new HashSet<TopicSolution>();
+            this.wordsToTranslate = new List<WordToTranslate>();
+            this.solutions = new List<TopicSolution>();
         }
 
         public string Name { get; set; }
@@ -24,14 +24,14 @@ namespace Langcademy.Data.Models
 
         public int NumberOfWordsToTranslate { get; set; }
 
-        public virtual ICollection<WordToTranslate> WordsToTranslate
+        public virtual IList<WordToTranslate> WordsToTranslate
         {
             get { return this.wordsToTranslate; }
 
             set { this.wordsToTranslate = value; }
         }
 
-        public virtual ICollection<TopicSolution> Solutions
+        public virtual IList<TopicSolution> Solutions
         {
             get { return this.solutions; }
 

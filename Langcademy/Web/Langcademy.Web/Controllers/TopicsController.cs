@@ -57,6 +57,26 @@ namespace Langcademy.Web.Controllers
         {
             //var topic = this.topics.GetById(id);
 
+            //here we calculate the result
+            //var wordsByUser = topic.WordsToTranslate.ToArray();
+
+            //var correctTopic = this.topics.GetById(topic.Id);
+            //var words = correctTopic.WordsToTranslate.ToArray();
+
+            //int correctAnswers = 0;
+
+            //for (int i = 0; i < correctTopic.WordsToTranslate.Count; i++)
+            //{
+            //    if (wordsByUser[i] == words[i])
+            //    {
+            //        correctAnswers += 1;
+            //    }
+            //}
+
+            //double percent = correctAnswers * 100 /
+            //    topic.NumberOfWordsToTranslate;
+
+            //this.TempData["result"] = percent + "% correct answers";
             return RedirectToAction("Index");
         }
     }

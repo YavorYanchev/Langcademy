@@ -9,10 +9,12 @@ namespace Langcademy.Data.Models
     public class TopicSolution
     {
         private ICollection<Answer> selectedAnswers;
+        private IList<WordToTranslate> selectedTranslation;
 
         public TopicSolution()
         {
             this.selectedAnswers = new HashSet<Answer>();
+            this.selectedTranslation = new List<WordToTranslate>();
         }
 
         public int Id { get; set; }
@@ -25,6 +27,13 @@ namespace Langcademy.Data.Models
         {
             get { return this.selectedAnswers; }
             set { this.selectedAnswers = value; }
+        }
+
+        public virtual IList<WordToTranslate> SelectedTranslation
+        {
+            get { return this.selectedTranslation; }
+
+            set { this.selectedTranslation = value; }
         }
     }
 }

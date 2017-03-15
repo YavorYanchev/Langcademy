@@ -49,6 +49,7 @@ namespace Langcademy.Web.Controllers
         public ActionResult Solve(int id)
         {
             var topic = this.topics.GetById(id);
+            this.ViewBag.NumWords = topic.WordsToTranslate.Count;
             return View(topic);
         }
 

@@ -11,11 +11,13 @@ namespace Langcademy.Data.Models
     {
         private IList<WordToTranslate> wordsToTranslate;
         private IList<TopicSolution> solutions;
+        private IList<WordToTranslate> selectedTranslations;
 
         public Topic()
         {
             this.wordsToTranslate = new List<WordToTranslate>();
             this.solutions = new List<TopicSolution>();
+            this.selectedTranslations = new List<WordToTranslate>();
         }
 
         public string Name { get; set; }
@@ -36,6 +38,14 @@ namespace Langcademy.Data.Models
             get { return this.solutions; }
 
             set { this.solutions = value; }
+        }
+
+
+        public virtual IList<WordToTranslate> SelectedTranslations
+        {
+            get { return this.selectedTranslations; }
+
+            set { this.selectedTranslations = value; }
         }
 
     }

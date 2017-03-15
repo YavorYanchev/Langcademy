@@ -1,11 +1,16 @@
 ﻿@model Langcademy.Data.Models.Topic
 @{
     ViewBag.Title = "Solve";
+    
 }
+
+<p>
+    @ViewBag.NumWords
+</p>
 <form id="topicForm" method="post" class="form-horizontal">
     @Html.AntiForgeryToken()
 
-    @foreach (var item in Model.WordsToTranslate)
+    @*@foreach (var item in Model.WordsToTranslate)
     {
         <p>@item.Text</p>
         <input id="@item.Id" />
@@ -13,17 +18,21 @@
             <label for="@item.Id">@item.Text</label>
             <input type="text" name="@item.Text" class="form-control" id="@item.Id">
         </div>
-    }
-
-    @*@for (int i = 0; i < Model.WordsToTranslate.Count; i++)
+    }*@
+    
+    @for (int i = 0; i < Model.WordsToTranslate.Count; i++)
     {
         <div class="form-group">
-            <label for="@Model.WordsToTranslate[i].Id">@Model.WordsToTranslate[i].Text</label>
-            <input type="text" name="@Model.WordsToTranslate[i].Text" class="form-control" id="@item.Id">
+            <label for="@i">@Model.WordsToTranslate[i].Text</label>
+            <input type="text" name="SelectedTranslations[@i].Translation" class="form-control" id="@i">
+            @*@Html.LabelFor(m=>Model.WordsToTranslate[i].Text)
+            @Html.EditorFor(m=>Model.SelectedTranslations[i].Translation)*@
         </div>
 
-    }*@
+    }
 
     <input type="submit" value="Submit" />
 
 </form>
+
+<h2>@Model.WordsToTranslate.Count</h2>

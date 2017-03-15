@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Results";
+}
+
+<h2>Results</h2>
+
+@if (TempData["result"] != null)
+{
+    <h1>
+        @TempData["result"]
+    </h1>
+}
+else
+{
+    <h1>There are no results :(</h1>
+}
+
+

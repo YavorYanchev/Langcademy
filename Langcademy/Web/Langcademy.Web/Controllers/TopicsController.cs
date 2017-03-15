@@ -78,7 +78,14 @@ namespace Langcademy.Web.Controllers
             //    topic.NumberOfWordsToTranslate;
 
             //this.TempData["result"] = percent + "% correct answers";
-            return RedirectToAction("Index");
+            return RedirectToAction("Results");
         }
+
+        public ActionResult Results()
+        {
+            var data = this.TempData["result"];
+            return View(data);
+        }
+
     }
 }

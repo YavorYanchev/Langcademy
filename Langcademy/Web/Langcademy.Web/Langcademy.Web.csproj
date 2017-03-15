@@ -293,6 +293,7 @@
     <Content Include="Views\Topics\Index.cshtml" />
     <Content Include="Views\Topics\Details.cshtml" />
     <Content Include="Views\Topics\Solve.cshtml" />
+    <Content Include="Views\Topics\Results.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

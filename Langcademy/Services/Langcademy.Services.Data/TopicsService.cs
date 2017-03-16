@@ -25,7 +25,7 @@ namespace Langcademy.Services.Data
         {
             if (topic == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException("Topic should not be null");
             }
 
             this.topics.Add(topic);

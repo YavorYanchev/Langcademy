@@ -32,6 +32,10 @@
     <CodeAnalysisRuleSet>..\..\Rules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.0.5813.39031, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NUnit.3.0.1\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
@@ -49,8 +53,21 @@
     <Compile Include="DummyTests.cs" />
     <Compile Include="IdentifierProviderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TopicsServiceTests\Add_Should.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\Langcademy.Data.Common\Langcademy.Data.Common.csproj">
+      <Project>{EDFE3C57-EF5B-4636-9ECC-D0BACA6B6379}</Project>
+      <Name>Langcademy.Data.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Langcademy.Data.Models\Langcademy.Data.Models.csproj">
+      <Project>{048df115-fad9-4bd4-9ba0-d99dfd32a2b2}</Project>
+      <Name>Langcademy.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\Langcademy.Services.Data\Langcademy.Services.Data.csproj">
+      <Project>{90FE4C4D-122A-406D-8A40-79C561FB8184}</Project>
+      <Name>Langcademy.Services.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Services\Langcademy.Services.Web\Langcademy.Services.Web.csproj">
       <Project>{deab17a2-58c1-448c-8a66-d49c3af7fc6c}</Project>
       <Name>Langcademy.Services.Web</Name>

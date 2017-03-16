@@ -42,7 +42,40 @@ namespace Langcademy.Services.Web.Tests.TopicsServiceTests
             var exc = Assert.Throws<ArgumentNullException>(() => topicService.Add(mockedTopic));
             StringAssert.Contains("should not be null", exc.Message);
         }
+
+
+        [Test]
+        public void CallAddMethodOnDbRepositoryOnlyOnce()
+        {
+            // Arrange
+            var mockedRepository = new Mock<IDbRepository<Topic>>();
+            var mockedIdentifier = new Mock<IIdentifierProvider>();
+            var topicService = new TopicsService(mockedRepository.Object, mockedIdentifier.Object);
+            var mockedTopic = new Mock<Topic>();
+
+            // Act
+            topicService.Add(mockedTopic.Object);
+
+            // Assert
+            mockedRepository.Verify(m => m.Add(mockedTopic.Object), Times.Once);
+
+        }
+
+        [Test]
+        public void CallSaveMethodOnDbRepositoryOnlyOnce()
+        {
+            // Arrange
+            var mockedRepository = new Mock<IDbRepository<Topic>>();
+            var mockedIdentifier = new Mock<IIdentifierProvider>();
+            var topicService = new TopicsService(mockedRepository.Object, mockedIdentifier.Object);
+            var mockedTopic = new Mock<Topic>();
+
+            // Act
+            topicService.Add(mockedTopic.Object);
+
+            // Assert
+            mockedRepository.Verify(m => m.Save(), Times.Once);
+
+        }
     }
-
-
 }

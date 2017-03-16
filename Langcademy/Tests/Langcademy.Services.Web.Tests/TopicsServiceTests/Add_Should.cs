@@ -77,5 +77,26 @@ namespace Langcademy.Services.Web.Tests.TopicsServiceTests
             mockedRepository.Verify(m => m.Save(), Times.Once);
 
         }
+
+        //[Test]
+        //public void IncrementTheAmountOfTopicsWhenCorrectValuesArePassed()
+        //{
+        //    // Arrange
+        //    var mockedRepository = new Mock<IDbRepository<Topic>>();
+        //    var mockedIdentifier = new Mock<IIdentifierProvider>();
+        //    var topicService = new TopicsService(mockedRepository.Object, mockedIdentifier.Object);
+        //    var mockedTopic = new Mock<Topic>();
+        //    //var emptyList = new List<Topic>() { };
+        //    //mockedRepository.Setup(m => m.All()).Returns(emptyList);
+        //    //mockedRepository.Setup(m => m.All().Count()).Returns(0);
+        //    //mockedRepository.Setup(m=>m.All().Count)
+        //    var mockedRepoObject = mockedRepository.Object;
+
+        //    // Act
+        //    topicService.Add(mockedTopic.Object);
+
+        //    // Assert
+        //    Assert.AreEqual(1,mockedRepoObject.All().Count());
+        //}
     }
 }

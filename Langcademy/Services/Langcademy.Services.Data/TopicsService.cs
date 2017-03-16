@@ -37,7 +37,7 @@ namespace Langcademy.Services.Data
             var topic = this.topics.GetById(id);
             if (topic == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException("Topic with the provided id is not found");
             }
 
             return topic;

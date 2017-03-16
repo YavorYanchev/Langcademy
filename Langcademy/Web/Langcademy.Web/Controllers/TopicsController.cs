@@ -28,6 +28,8 @@ namespace Langcademy.Web.Controllers
         //    return View();
         //}
 
+        //TODO: Uncomment this
+        //[Authorize]
         public ActionResult Create()
         {
             return View();

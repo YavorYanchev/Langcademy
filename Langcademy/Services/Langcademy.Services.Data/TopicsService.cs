@@ -42,5 +42,10 @@ namespace Langcademy.Services.Data
 
             return topic;
         }
+
+        public IQueryable<Topic> GetAllTopics()
+        {
+            return this.topics.All();
+        }
     }
 }

@@ -54,6 +54,7 @@
     <Compile Include="IdentifierProviderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TopicsServiceTests\Add_Should.cs" />
+    <Compile Include="TopicsServiceTests\GetAllTopics_Should.cs" />
     <Compile Include="TopicsServiceTests\GetById_Should.cs" />
   </ItemGroup>
   <ItemGroup>

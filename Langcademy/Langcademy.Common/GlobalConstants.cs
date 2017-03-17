@@ -15,5 +15,7 @@
 
         public const int AvatarImageUrlMaxLength = 1024;
         public const int EmailMaxLength = 100;
+
+        public const int InitialLevel = 1;
     }
 }

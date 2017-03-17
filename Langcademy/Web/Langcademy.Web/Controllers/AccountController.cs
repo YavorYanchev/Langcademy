@@ -172,8 +172,10 @@
             {
                 var user = new ApplicationUser
                 {
-                    UserName = model.Email,
-                    Email = model.Email
+                    UserName = model.UserName,
+                    Email = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName
                 };
                 var result = await this.UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

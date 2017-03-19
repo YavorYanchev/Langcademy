@@ -1,9 +1,16 @@
-﻿using NUnit.Framework;
+﻿using Langcademy.Data.Models;
+using NUnit.Framework;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Langcademy.Data.Models.Tests
 {
+
     [TestFixture]
     public class ApplicationUserTests
     {

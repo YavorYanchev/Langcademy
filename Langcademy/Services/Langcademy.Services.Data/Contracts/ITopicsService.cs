@@ -12,5 +12,7 @@ namespace Langcademy.Services.Data.Contracts
         void Add(Topic topic);
 
         Topic GetById(int id);
+
+        IQueryable<Topic> GetAllTopics();
     }
 }

@@ -20,7 +20,8 @@ namespace Langcademy.Web.Controllers
         // GET: Topics
         public ActionResult Index()
         {
-            return View();
+            var allTopics = this.topics.GetAllTopics();
+            return View(allTopics);
         }
 
         //public ActionResult Index(int id)

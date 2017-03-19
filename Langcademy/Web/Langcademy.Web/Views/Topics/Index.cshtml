@@ -1,7 +1,19 @@
-﻿
+﻿@model IEnumerable<Langcademy.Data.Models.Topic>
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>All topics</h2>
 
+@foreach (var item in Model)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">@item.Name</h3>
+        </div>
+        <div class="panel-body">
+            @Html.ActionLink("Details","Details",new { id=@item.Id})
+            @item.Description
+        </div>
+    </div>
+}

@@ -1,32 +1,32 @@
-﻿
+﻿@Model LangTest.Models.Topic
 @{
     ViewBag.Title = "Create";
     ViewBag.NumWords = 0;
 }
 
-@Model LangTest.Models.Topic
+
 
 <form id="wordForm" method="post" class="form-horizontal">
     @Html.AntiForgeryToken()
 
     <div class="form-group">
         <label for="nameOfTopic">Name:</label>
-        <input type="text" name="Name" class="form-control" id="nameOfTopic">
+        <input type="text" name="Name" class="form-control" id="nameOfTopic" required minlength =2 maxlength=200>
     </div>
 
     <div class="form-group">
         <label for="description">Description:</label>
-        <textarea class="form-control" name="Description" rows="5" id="description"></textarea>
+        <textarea class="form-control" name="Description" rows="5" id="description" required minlength =2 maxlength=1000></textarea>
     </div>
 
-   
+
     <div class="form-group">
         <label class="col-xs-1 control-label">Word</label>
         <div class="col-xs-4">
-            <input type="text" class="form-control" name="WordsToTranslate[0].Text" placeholder="Text" />
+            <input type="text" class="form-control" name="WordsToTranslate[0].Text" placeholder="Text" required minlength =2 maxlength=200/>
         </div>
         <div class="col-xs-4">
-            <input type="text" class="form-control" name="WordsToTranslate[0].Translation" placeholder="Translation" />
+            <input type="text" class="form-control" name="WordsToTranslate[0].Translation" placeholder="Translation" required minlength =2 maxlength=200 />
         </div>
 
         <div class="col-xs-1">
@@ -48,7 +48,7 @@
         </div>
     </div>
 
-    <input id="numberOfWords" type="hidden" name="NumberOfWordsToTranslate"/>
+    <input id="numberOfWords" type="hidden" name="NumberOfWordsToTranslate" />
 
     <div class="form-group">
         <div class="col-xs-5 col-xs-offset-1">
@@ -107,13 +107,14 @@
                                     .clone()
                                     .removeClass('hide')
                                     .removeAttr('id')
+                                    
                                     .attr('data-word-index', wordIndex)
                                     .insertBefore($template);
 
                 // Update the name attributes
                 $clone
-                    .find('[name="Text"]').attr('name', 'WordsToTranslate[' + wordIndex + '].Text').end()
-                    .find('[name="Translation"]').attr('name', 'WordsToTranslate[' + wordIndex + '].Translation').end();
+                    .find('[name="Text"]').attr('name', 'WordsToTranslate[' + wordIndex + '].Text').prop('required',true).attr('minlength',2).attr('maxlength',200).end()
+                    .find('[name="Translation"]').attr('name', 'WordsToTranslate[' + wordIndex + '].Translation').prop('required', true).attr('minlength', 2).attr('maxlength', 200).end();
 
 
                 // Add new fields
@@ -127,8 +128,11 @@
                     index = $row.attr('data-word-index');
                 wordIndex--;
 
-                $('#numberOfWords').val(wordIndex-1);
-
+                //$('#numberOfWords').val(wordIndex - 1);
+                //$row.addClass('hidden');
+                //$row.removeAttr('required');
+                //$row.removeAttr('minlength');
+                //$row.removeAttr('maxlength');
                 // Remove fields
                 //$('#wordForm')
                 //    .formValidation('removeField', $row.find('[name="word[' + index + '].title"]'))
@@ -143,4 +147,3 @@
 
 
 </script>
-

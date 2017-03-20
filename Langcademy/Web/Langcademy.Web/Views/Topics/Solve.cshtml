@@ -24,7 +24,7 @@
     {
         <div class="form-group">
             <label for="@i">@Model.WordsToTranslate[i].Text</label>
-            <input type="text" name="SelectedTranslations[@i].Translation" class="form-control" id="@i">
+            <input type="text" name="SelectedTranslations[@i].Translation" class="form-control" id="@i" value="@Model.WordsToTranslate[i].Translation[0]">
             @*@Html.LabelFor(m=>Model.WordsToTranslate[i].Text)
             @Html.EditorFor(m=>Model.SelectedTranslations[i].Translation)*@
         </div>

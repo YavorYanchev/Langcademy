@@ -11,16 +11,22 @@
     <h1>
         @TempData["result"]
     </h1>
+    <p>
+        Time:@this.TempData["time-elapsed"]
+
+    </p>
+
+    <p>Time in seconds: @this.TempData["time-elapsed-seconds"] </p>
 
     @*if (TempData["wrong"] != null)
-    {
-        //var all = TempData["wrong"] as List<object>;
-        foreach (var item in listWrongTranslations)
         {
-            <p>@item.Text</p>
-        }
+            //var all = TempData["wrong"] as List<object>;
+            foreach (var item in listWrongTranslations)
+            {
+                <p>@item.Text</p>
+            }
 
-    }*@
+        }*@
 }
 else
 {

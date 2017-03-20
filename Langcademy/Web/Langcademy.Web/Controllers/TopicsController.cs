@@ -57,7 +57,7 @@ namespace Langcademy.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Solve(Topic topic)
+        public ActionResult Solve(Topic topic,string elapsedTime,int elapsedTimeInSeconds)
         {
             //var topic = this.topics.GetById(id);
 
@@ -91,15 +91,18 @@ namespace Langcademy.Web.Controllers
             //int num = topic.WordsToTranslate.Count;
 
             double percent = (correctAnswers * 100 ) / numberWords;
-
+            this.TempData["time-elapsed"] = elapsedTime;
+            this.TempData["time-elapsed-seconds"] = elapsedTimeInSeconds;
             this.TempData["result"] = percent + "% correct answers";
             //this.TempData["wrong"] = wrongTranslations.ToArray();
             return RedirectToAction("Results");
         }
 
-        public ActionResult Results()
+        
+        public ActionResult Results(string elapsed)
         {
             var data = this.TempData["result"];
+            var time = elapsed;
             //var arr = this.TempData["wrong"];
             return View();
         }

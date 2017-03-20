@@ -11,6 +11,7 @@
 
     using Langcademy.Data.Models;
     using Langcademy.Web.ViewModels.Account;
+    using Common;
 
     [Authorize]
     public class AccountController : BaseController
@@ -180,6 +181,8 @@
                 var result = await this.UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    this.UserManager.AddToRole(user.Id, GlobalConstants.RegularUser);
+
                     await this.SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

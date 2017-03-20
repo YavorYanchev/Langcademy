@@ -3,6 +3,7 @@
     public class GlobalConstants
     {
         public const string AdministratorRoleName = "Administrator";
+        public const string RegularUser = "RegularUser";
         public const int PasswordMinLength = 1;
         public const int UserNameMinLength = 4;
         public const int UserNameMaxLength = 30;

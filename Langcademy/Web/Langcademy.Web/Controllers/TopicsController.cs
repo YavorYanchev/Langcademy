@@ -69,11 +69,23 @@ namespace Langcademy.Web.Controllers
 
             int correctAnswers = 0;
             int numberWords = correctTopic.WordsToTranslate.Count;
+
+            var wrongTranslations = new List<object>();
+
             for (int i = 0; i < numberWords; i++)
             {
                 if (correctTopic.WordsToTranslate[i].Translation == topic.SelectedTranslations[i].Translation)
                 {
                     correctAnswers += 1;
+                }
+                else
+                {
+                    //wrongTranslations.Add(new TranslationResult()
+                    //{
+                    //    Text = correctTopic.WordsToTranslate[i].Text,
+                    //    WrongTranslation = topic.SelectedTranslations[i].Translation,
+                    //    CorrectTranslation = correctTopic.WordsToTranslate[i].Translation
+                    //});
                 }
             }
             //int num = topic.WordsToTranslate.Count;
@@ -81,14 +93,25 @@ namespace Langcademy.Web.Controllers
             double percent = (correctAnswers * 100 ) / numberWords;
 
             this.TempData["result"] = percent + "% correct answers";
+            //this.TempData["wrong"] = wrongTranslations.ToArray();
             return RedirectToAction("Results");
         }
 
         public ActionResult Results()
         {
             var data = this.TempData["result"];
-            return View(data);
+            //var arr = this.TempData["wrong"];
+            return View();
         }
 
+    }
+
+    public class TranslationResult
+    {
+        public string Text { get; set; }
+
+        public string WrongTranslation { get; set; }
+
+        public string CorrectTranslation{ get; set; }
     }
 }

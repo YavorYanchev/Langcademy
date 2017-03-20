@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Results";
+    //var listWrongTranslations = (object[])TempData["wrong"];
 }
 
 <h2>Results</h2>
@@ -10,6 +11,16 @@
     <h1>
         @TempData["result"]
     </h1>
+
+    @*if (TempData["wrong"] != null)
+    {
+        //var all = TempData["wrong"] as List<object>;
+        foreach (var item in listWrongTranslations)
+        {
+            <p>@item.Text</p>
+        }
+
+    }*@
 }
 else
 {

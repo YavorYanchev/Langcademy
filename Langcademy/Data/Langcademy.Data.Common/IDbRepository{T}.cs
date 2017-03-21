@@ -22,5 +22,7 @@
         void Save();
 
         void Dispose();
+
+        void HardDeleteById(object id);
     }
 }

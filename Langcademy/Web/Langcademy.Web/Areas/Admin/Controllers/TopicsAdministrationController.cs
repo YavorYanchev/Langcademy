@@ -1,4 +1,5 @@
 ﻿using Langcademy.Common;
+using Langcademy.Data.Models;
 using Langcademy.Services.Data.Contracts;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,12 @@ namespace Langcademy.Web.Areas.Admin.Controllers
         {
             var allTopics = this.topics.GetAllTopics();
             return View(allTopics);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            this.topics.HardDeleteTopicById(id);
+            return this.RedirectToAction("Index");
         }
     }
 }

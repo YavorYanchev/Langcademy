@@ -70,5 +70,15 @@
         {
             this.Context.Dispose();
         }
+
+        public void HardDeleteById(object id)
+        {
+            var entity = this.GetById(id);
+
+            if (entity != null)
+            {
+                this.HardDelete(entity);
+            }
+        }
     }
 }

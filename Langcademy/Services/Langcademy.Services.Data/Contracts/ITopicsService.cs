@@ -14,5 +14,9 @@ namespace Langcademy.Services.Data.Contracts
         Topic GetById(int id);
 
         IQueryable<Topic> GetAllTopics();
+
+        //void DeleteTopic(Topic topicToDelete);
+
+        void HardDeleteTopicById(int id);
     }
 }

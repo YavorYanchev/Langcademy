@@ -47,5 +47,12 @@ namespace Langcademy.Services.Data
         {
             return this.topics.All();
         }
+
+        public void HardDeleteTopicById(int id)
+        {
+            this.topics.HardDeleteById(id);
+            this.topics.Save();
+        }
+
     }
 }

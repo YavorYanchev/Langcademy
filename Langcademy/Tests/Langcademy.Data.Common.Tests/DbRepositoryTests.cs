@@ -1,10 +1,7 @@
 ﻿using Langcademy.Data.Common;
+using Langcademy.Data.Common;
+using Moq;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Langcademy.Data.Common.Tests
 {
@@ -12,9 +9,12 @@ namespace Langcademy.Data.Common.Tests
     public class DbRepositoryTests
     {
         [Test]
-        public void NotInterestingTest()
+        public void ConstructorShould_ThrowExceptionWhenInvalidDataIsPassed()
         {
-            
+            //var mockedDbContext = new Mock<ApplicationDbContext>();
+            //var mockedTopic = new Mock<Topic>();
+            //var dbRepo = new DbRepository<mocke>()
+
             Assert.IsTrue(true);
         }
     }

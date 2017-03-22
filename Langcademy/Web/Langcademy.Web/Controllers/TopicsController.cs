@@ -31,12 +31,14 @@ namespace Langcademy.Web.Controllers
 
         //TODO: Uncomment this
         //[Authorize]
+        [Authorize]
         public ActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Create(Topic topic)
         {
             this.topics.Add(topic);

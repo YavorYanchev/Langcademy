@@ -41,6 +41,7 @@ namespace Langcademy.Web.Controllers
         [Authorize]
         public ActionResult Create(Topic topic)
         {
+            //topic.User = this.User.Identity;
             this.topics.Add(topic);
             return RedirectToAction("Index");
         }

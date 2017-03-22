@@ -41,17 +41,13 @@
 
         public int Level { get; set; }
 
-        public virtual ICollection<Topic> CreatedTopics
+        public virtual ICollection<Topic> Topics
         {
             get { return this.createdTopics; }
             set { this.createdTopics = value; }
         }
 
-        public virtual ICollection<Topic> SolvedTopics
-        {
-            get { return this.solvedTopics; }
-            set { this.solvedTopics = value; }
-        }
+       
 
         public bool IsDeleted { get; set; }
 

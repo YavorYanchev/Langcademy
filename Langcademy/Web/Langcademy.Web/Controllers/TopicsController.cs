@@ -5,16 +5,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace Langcademy.Web.Controllers
 {
     public class TopicsController : Controller
     {
         private readonly ITopicsService topics;
+        private readonly IUsersService users;
 
-        public TopicsController(ITopicsService topics)
+        public TopicsController(ITopicsService topics,IUsersService users)
         {
             this.topics = topics;
+            this.users = users;
         }
 
         // GET: Topics
@@ -42,6 +45,10 @@ namespace Langcademy.Web.Controllers
         public ActionResult Create(Topic topic)
         {
             //topic.User = this.User.Identity;
+            var id = this.HttpContext.User.Identity.GetUserId();
+            var user = users.GetById(id);
+            topic.CreatorId = id;
+            topic.Creator = user.FirstOrDefault();
             this.topics.Add(topic);
             return RedirectToAction("Index");
         }

@@ -27,10 +27,10 @@ namespace Langcademy.Data.Models
 
         public int NumberOfWordsToTranslate { get; set; }
 
-        [ForeignKey("ApplicationUser")]
-        public string UserId { get; set; }
+        public string CreatorId { get; set; }
 
-        public virtual ApplicationUser User { get; set; }
+        [ForeignKey("CreatorId")]
+        public virtual ApplicationUser Creator { get; set; }
 
         public virtual IList<WordToTranslate> WordsToTranslate
         {

@@ -72,17 +72,15 @@ namespace Langcademy.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Solve(TopicSubmission topicSubmission, string elapsedTime,int elapsedTimeInSeconds)
+        public ActionResult Solve(int id,TopicSubmission topicSubmission, string elapsedTime,int elapsedTimeInSeconds)
         {
-            var id = int.Parse(this.Request.Url.AbsolutePath.Split('/').Last());
+            //var idFromUrl = int.Parse(this.Request.Url.AbsolutePath.Split('/').Last());
            var topic = this.topics.GetById(id);
             topicSubmission.ForTopic = topic;
             topicSubmission.ForTopicId = topic.Id;
-            //here we calculate the result
-            //var wordsByUser = topic.WordsToTranslate.ToArray();
+         
             var correctTopic = topicSubmission.ForTopic;
-            //var correctTopic = this.topics.GetById(topic.Id);
-            //var words = correctTopic.WordsToTranslate.ToArray();
+            
 
             int correctAnswers = 0;
             int numberWords = correctTopic.WordsToTranslate.Count;

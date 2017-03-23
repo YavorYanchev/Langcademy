@@ -67,7 +67,7 @@
 
             //------------------------
             builder.RegisterAssemblyTypes(Assembly.GetAssembly(typeof(ITopicsService))).AsImplementedInterfaces();
-                
+            builder.RegisterAssemblyTypes(Assembly.GetAssembly(typeof(ITopicSubmissionsService))).AsImplementedInterfaces();
         }
     }
 }

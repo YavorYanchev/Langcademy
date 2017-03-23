@@ -13,11 +13,13 @@ namespace Langcademy.Web.Controllers
     {
         private readonly ITopicsService topics;
         private readonly IUsersService users;
+        private readonly ITopicSubmissionsService submissions;
 
-        public TopicsController(ITopicsService topics,IUsersService users)
+        public TopicsController(ITopicsService topics,IUsersService users, ITopicSubmissionsService submissions)
         {
             this.topics = topics;
             this.users = users;
+            this.submissions = submissions;
         }
 
         // GET: Topics
@@ -81,6 +83,7 @@ namespace Langcademy.Web.Controllers
          
             var correctTopic = topicSubmission.ForTopic;
             
+            
 
             int correctAnswers = 0;
             int numberWords = correctTopic.WordsToTranslate.Count;
@@ -89,7 +92,7 @@ namespace Langcademy.Web.Controllers
 
             for (int i = 0; i < numberWords; i++)
             {
-                if (correctTopic.WordsToTranslate[i].Translation == topicSubmission.SelectedTranslations[i].Translation)
+                if (correctTopic.WordsToTranslate[i].Translation == topicSubmission.SelectedTranslations[i])
                 {
                     correctAnswers += 1;
                 }
@@ -118,8 +121,24 @@ namespace Langcademy.Web.Controllers
             //    var all = user.FirstOrDefault().Topics;
             //}
 
-            //this.TempData["wrong"] = wrongTranslations.ToArray();
-            return RedirectToAction("Results");
+            if (User.Identity.IsAuthenticated)
+            {
+
+                var userId = this.HttpContext.User.Identity.GetUserId();
+                var user = users.GetById(userId);
+                //user.FirstOrDefault().Submissions.Add(topicSubmission);
+                topicSubmission.ByUserId = userId;
+                topicSubmission.ByUser = user.FirstOrDefault();
+
+                topicSubmission.TimeElapsed = elapsedTime;
+                topicSubmission.TimeElapsedInSeconds = elapsedTimeInSeconds;
+
+                this.submissions.Add(topicSubmission);
+
+            }
+
+                //this.TempData["wrong"] = wrongTranslations.ToArray();
+                return RedirectToAction("Results");
         }
 
         

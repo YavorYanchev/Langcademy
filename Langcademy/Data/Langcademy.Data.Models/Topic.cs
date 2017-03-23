@@ -32,6 +32,7 @@ namespace Langcademy.Data.Models
         [ForeignKey("CreatorId")]
         public virtual ApplicationUser Creator { get; set; }
 
+
         public virtual IList<WordToTranslate> WordsToTranslate
         {
             get { return this.wordsToTranslate; }

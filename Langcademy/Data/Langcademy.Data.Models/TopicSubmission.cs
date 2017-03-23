@@ -11,15 +11,13 @@ namespace Langcademy.Data.Models
     public class TopicSubmission: BaseModel<int>
     {
        // private ICollection<Answer> selectedAnswers;
-        private IList<WordToTranslate> selectedTranslation;
+        private IList<string> selectedTranslation;
 
         public TopicSubmission()
         {
            // this.selectedAnswers = new HashSet<Answer>();
-            this.selectedTranslation = new List<WordToTranslate>();
+            this.selectedTranslation = new List<string>();
         }
-
-        public int Id { get; set; }
 
         public int ForTopicId { get; set; }
 
@@ -37,7 +35,7 @@ namespace Langcademy.Data.Models
 
         public double PercentageCorrectTranslations { get; set; }
 
-        public virtual IList<WordToTranslate> SelectedTranslations
+        public virtual IList<string> SelectedTranslations
         {
             get { return this.selectedTranslation; }
 

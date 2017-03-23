@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Langcademy.Data.Common.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Langcademy.Data.Models
 {
-    public class TopicSubmission
+    public class TopicSubmission: BaseModel<int>
     {
        // private ICollection<Answer> selectedAnswers;
         private IList<WordToTranslate> selectedTranslation;

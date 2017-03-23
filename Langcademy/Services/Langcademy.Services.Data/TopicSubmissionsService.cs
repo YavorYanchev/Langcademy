@@ -1,4 +1,7 @@
-﻿using Langcademy.Data.Models;
+﻿using Langcademy.Data.Common;
+using Langcademy.Data.Models;
+using Langcademy.Services.Data.Contracts;
+using Langcademy.Services.Web;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,14 +10,14 @@ using System.Threading.Tasks;
 
 namespace Langcademy.Services.Data
 {
-    //public class TopicSubmissionsService:ITopicSubmissionsService
+    //public class TopicSubmissionsService : ITopicSubmissionsService
     //{
     //    private readonly IIdentifierProvider identifierProvider;
-    //    private readonly IDbRepository<Topic> topics;
+    //    private readonly IDbRepository<TopicSubmission> submissions;
 
-    //    public TopicsService(IDbRepository<Topic> topics, IIdentifierProvider identifierProvider)
+    //    public TopicSubmissionsService(IDbRepository<TopicSubmission> submissions, IIdentifierProvider identifierProvider)
     //    {
-    //        this.topics = topics;
+    //        this.submissions = submissions;
     //        this.identifierProvider = identifierProvider;
     //    }
 
@@ -29,7 +32,7 @@ namespace Langcademy.Services.Data
     //        this.topics.Save();
     //    }
 
-    //    public Topic GetById(int id)
+    //    public TopicSubmission GetById(int id)
     //    {
     //        var topic = this.topics.GetById(id);
     //        if (topic == null)
@@ -40,7 +43,7 @@ namespace Langcademy.Services.Data
     //        return topic;
     //    }
 
-    //    public IQueryable<Topic> GetAllTopics()
+    //    public IQueryable<TopicSubmission> GetAllTopicSubmissions()
     //    {
     //        return this.topics.All();
     //    }

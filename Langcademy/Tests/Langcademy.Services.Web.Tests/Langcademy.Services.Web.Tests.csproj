@@ -56,6 +56,7 @@
     <Compile Include="TopicsServiceTests\Add_Should.cs" />
     <Compile Include="TopicsServiceTests\GetAllTopics_Should.cs" />
     <Compile Include="TopicsServiceTests\GetById_Should.cs" />
+    <Compile Include="TopicSubmissionsServiceTests\Add_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Data\Langcademy.Data.Common\Langcademy.Data.Common.csproj">
@@ -91,9 +92,7 @@
       <Link>stylecop.json</Link>
     </AdditionalFiles>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TopicSubmissionsService\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

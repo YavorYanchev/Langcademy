@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Langcademy.Data.Models.TopicSubmission>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All submissions</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ForTopic.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ByUser.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PercentageCorrectTranslations)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeElapsed)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ForTopic.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ByUser.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PercentageCorrectTranslations)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeElapsed)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |*@
+                @*@Html.ActionLink("X", "Delete", "TopicsAdministration", new { area = "Admin", id = item.Id }, new { @class = "btn btn-danger" })*@
+            </td>
+        </tr>
+    }
+
+</table>

@@ -14,13 +14,13 @@
     public class ApplicationUser : IdentityUser, IDeletableEntity, IAuditInfo
     {
         private ICollection<Topic> createdTopics;
-        private ICollection<Topic> solvedTopics;
+        private IList<TopicSubmission> submissions;
 
         public ApplicationUser()
         {
-            this.createdTopics = new HashSet<Topic>();
-            this.solvedTopics = new HashSet<Topic>();
             this.Level = GlobalConstants.InitialLevel;
+            this.submissions = new List<TopicSubmission>();
+            this.createdTopics = new HashSet<Topic>();
 
             // TODO: maybe UtcNow, but left it like this for consistency with other code
             this.CreatedOn = DateTime.Now;
@@ -41,13 +41,11 @@
 
         public int Level { get; set; }
 
-        public virtual ICollection<Topic> Topics
+        public virtual ICollection<Topic> CreatedTopics
         {
             get { return this.createdTopics; }
             set { this.createdTopics = value; }
         }
-
-       
 
         public bool IsDeleted { get; set; }
 
@@ -56,6 +54,13 @@
         public DateTime CreatedOn { get; set; }
 
         public DateTime? ModifiedOn { get; set; }
+
+        public virtual IList<TopicSubmission> Submissions
+        {
+            get { return this.submissions; }
+
+            set { this.submissions = value; }
+        }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

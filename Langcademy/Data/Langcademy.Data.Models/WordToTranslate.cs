@@ -9,31 +9,31 @@ namespace Langcademy.Data.Models
 {
     public class WordToTranslate : BaseModel<int>
     {
-        private ICollection<Answer> answers;
+       // private ICollection<Answer> answers;
 
         public WordToTranslate()
         {
-            this.answers = new HashSet<Answer>();
+           // this.answers = new HashSet<Answer>();
         }
 
         public string Text { get; set; }
 
         public string Translation { get; set; }
 
-        public string ResultDescription { get; set; }
+        //public string ResultDescription { get; set; }
 
-        public virtual ICollection<Answer> Answers
-        {
-            get
-            {
-                return this.answers;
-            }
+        //public virtual ICollection<Answer> Answers
+        //{
+        //    get
+        //    {
+        //        return this.answers;
+        //    }
 
-            set
-            {
-                this.answers = value;
-            }
-        }
+        //    set
+        //    {
+        //        this.answers = value;
+        //    }
+        //}
 
         public int TopicId { get; set; }
 

@@ -1,4 +1,4 @@
-﻿@model Langcademy.Data.Models.Topic
+﻿@model Langcademy.Data.Models.TopicSubmission
 @{
     ViewBag.Title = "Solve";
     
@@ -7,6 +7,9 @@
 <p>
     @ViewBag.NumWords
 </p>
+
+<p>@Model.ForTopic.Name</p>
+
 <div class="page-header">
     <h1><time>00:00:00</time></h1>
 </div>
@@ -18,6 +21,7 @@
 <form id="topicForm" method="post" class="form-horizontal" style="margin:100px">
     @Html.AntiForgeryToken()
 
+
     @*@foreach (var item in Model.WordsToTranslate)
     {
         <p>@item.Text</p>
@@ -27,12 +31,15 @@
             <input type="text" name="@item.Text" class="form-control" id="@item.Id">
         </div>
     }*@
-    
-    @for (int i = 0; i < Model.WordsToTranslate.Count; i++)
+    <p>!!!!!!!!!!!!!!!!!!!!!!</p>
+    <p>@Model.ForTopic.Name</p>
+    <p>@Model.ForTopic.Description</p>
+
+    @for (int i = 0; i < Model.ForTopic.WordsToTranslate.Count; i++)
     {
         <div class="form-group">
-            <label for="@i">@Model.WordsToTranslate[i].Text</label>
-            <input type="text" name="SelectedTranslations[@i].Translation" class="form-control" id="@i" value="@Model.WordsToTranslate[i].Translation[0]">
+            <label for="@i">@Model.ForTopic.WordsToTranslate[i].Text</label>
+            <input type="text" name="SelectedTranslations[@i].Translation" class="form-control" id="@i" value="@Model.ForTopic.WordsToTranslate[i].Translation[0]">
             @*@Html.LabelFor(m=>Model.WordsToTranslate[i].Text)
             @Html.EditorFor(m=>Model.SelectedTranslations[i].Translation)*@
         </div>
@@ -46,7 +53,7 @@
 
 </form>
 
-<h2>@Model.WordsToTranslate.Count</h2>
+<h2>@Model.ForTopic.WordsToTranslate.Count</h2>
 
 <script>
     var h1 = document.getElementsByTagName('h1')[0],

@@ -24,9 +24,9 @@
 
         public virtual IDbSet<WordToTranslate> WordsToTranslate { get; set; }
 
-        public virtual IDbSet<Answer> Answers { get; set; }
+       // public virtual IDbSet<Answer> Answers { get; set; }
 
-        public virtual IDbSet<TopicSolution> TopicSolutions { get; set; }
+        public virtual IDbSet<TopicSubmission> TopicSubmissions { get; set; }
 
         public static ApplicationDbContext Create()
         {

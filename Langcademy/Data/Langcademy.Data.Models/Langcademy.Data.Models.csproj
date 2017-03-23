@@ -63,7 +63,7 @@
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Topic.cs" />
-    <Compile Include="TopicSolution.cs" />
+    <Compile Include="TopicSubmission.cs" />
     <Compile Include="WordToTranslate.cs" />
   </ItemGroup>
   <ItemGroup>

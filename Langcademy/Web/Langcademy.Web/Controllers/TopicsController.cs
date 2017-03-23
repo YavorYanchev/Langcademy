@@ -63,18 +63,25 @@ namespace Langcademy.Web.Controllers
         {
             var topic = this.topics.GetById(id);
             this.ViewBag.NumWords = topic.WordsToTranslate.Count;
-            return View(topic);
+            var ts = new TopicSubmission()
+            {
+                
+                ForTopic = topic
+            };
+            return View(ts);
         }
 
         [HttpPost]
-        public ActionResult Solve(Topic topic,string elapsedTime,int elapsedTimeInSeconds)
+        public ActionResult Solve(TopicSubmission topicSubmission, string elapsedTime,int elapsedTimeInSeconds)
         {
-            //var topic = this.topics.GetById(id);
-
+            var id = int.Parse(this.Request.Url.AbsolutePath.Split('/').Last());
+           var topic = this.topics.GetById(id);
+            topicSubmission.ForTopic = topic;
+            topicSubmission.ForTopicId = topic.Id;
             //here we calculate the result
             //var wordsByUser = topic.WordsToTranslate.ToArray();
-
-            var correctTopic = this.topics.GetById(topic.Id);
+            var correctTopic = topicSubmission.ForTopic;
+            //var correctTopic = this.topics.GetById(topic.Id);
             //var words = correctTopic.WordsToTranslate.ToArray();
 
             int correctAnswers = 0;
@@ -84,7 +91,7 @@ namespace Langcademy.Web.Controllers
 
             for (int i = 0; i < numberWords; i++)
             {
-                if (correctTopic.WordsToTranslate[i].Translation == topic.SelectedTranslations[i].Translation)
+                if (correctTopic.WordsToTranslate[i].Translation == topicSubmission.SelectedTranslations[i].Translation)
                 {
                     correctAnswers += 1;
                 }
@@ -104,6 +111,15 @@ namespace Langcademy.Web.Controllers
             this.TempData["time-elapsed"] = elapsedTime;
             this.TempData["time-elapsed-seconds"] = elapsedTimeInSeconds;
             this.TempData["result"] = percent + "% correct answers";
+
+            //if(this.User.Identity.IsAuthenticated)
+            //{
+            //    var id = this.HttpContext.User.Identity.GetUserId();
+            //    var user = users.GetById(id);
+            //    user.FirstOrDefault().Topics.Add(topic);
+            //    var all = user.FirstOrDefault().Topics;
+            //}
+
             //this.TempData["wrong"] = wrongTranslations.ToArray();
             return RedirectToAction("Results");
         }
@@ -114,6 +130,7 @@ namespace Langcademy.Web.Controllers
             var data = this.TempData["result"];
             var time = elapsed;
             //var arr = this.TempData["wrong"];
+            
             return View();
         }
 

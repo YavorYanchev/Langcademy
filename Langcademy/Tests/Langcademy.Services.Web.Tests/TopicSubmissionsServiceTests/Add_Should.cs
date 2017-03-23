@@ -30,7 +30,7 @@ namespace Langcademy.Services.Web.Tests.TopicSubmissionsServiceTests
         }
 
         [Test]
-        public void ThrowArgumentNullExceptionWithMessageThatShouldNotBeBullWhenTopicIsNull()
+        public void ThrowArgumentNullExceptionWithMessageThatShouldNotBeBullWhenSubmissionIsNull()
         {
             // Arrange
             var mockedRepository = new Mock<IDbRepository<TopicSubmission>>();
@@ -44,39 +44,39 @@ namespace Langcademy.Services.Web.Tests.TopicSubmissionsServiceTests
         }
 
 
-        //[Test]
-        //public void CallAddMethodOnDbRepositoryOnlyOnce()
-        //{
-        //    // Arrange
-        //    var mockedRepository = new Mock<IDbRepository<Topic>>();
-        //    var mockedIdentifier = new Mock<IIdentifierProvider>();
-        //    var topicService = new TopicsService(mockedRepository.Object, mockedIdentifier.Object);
-        //    var mockedTopic = new Mock<Topic>();
+        [Test]
+        public void CallAddMethodOnDbRepositoryOnlyOnce()
+        {
+            // Arrange
+            var mockedRepository = new Mock<IDbRepository<TopicSubmission>>();
+            var mockedIdentifier = new Mock<IIdentifierProvider>();
+            var topicSubmissionService = new TopicSubmissionsService(mockedRepository.Object, mockedIdentifier.Object);
+            var mockedTopicSubmission = new Mock<TopicSubmission>();
 
-        //    // Act
-        //    topicService.Add(mockedTopic.Object);
+            // Act
+            topicSubmissionService.Add(mockedTopicSubmission.Object);
 
-        //    // Assert
-        //    mockedRepository.Verify(m => m.Add(mockedTopic.Object), Times.Once);
+            // Assert
+            mockedRepository.Verify(m => m.Add(mockedTopicSubmission.Object), Times.Once);
 
-        //}
+        }
 
-        //[Test]
-        //public void CallSaveMethodOnDbRepositoryOnlyOnce()
-        //{
-        //    // Arrange
-        //    var mockedRepository = new Mock<IDbRepository<Topic>>();
-        //    var mockedIdentifier = new Mock<IIdentifierProvider>();
-        //    var topicService = new TopicsService(mockedRepository.Object, mockedIdentifier.Object);
-        //    var mockedTopic = new Mock<Topic>();
+        [Test]
+        public void CallSaveMethodOnDbRepositoryOnlyOnce()
+        {
+            // Arrange
+            var mockedRepository = new Mock<IDbRepository<TopicSubmission>>();
+            var mockedIdentifier = new Mock<IIdentifierProvider>();
+            var topicSubmissionService = new TopicSubmissionsService(mockedRepository.Object, mockedIdentifier.Object);
+            var mockedTopicSubmission = new Mock<TopicSubmission>();
 
-        //    // Act
-        //    topicService.Add(mockedTopic.Object);
+            // Act
+            topicSubmissionService.Add(mockedTopicSubmission.Object);
 
-        //    // Assert
-        //    mockedRepository.Verify(m => m.Save(), Times.Once);
+            // Assert
+            mockedRepository.Verify(m => m.Save(), Times.Once);
 
-        //}
+        }
 
         //[Test]
         //public void IncrementTheAmountOfTopicsWhenCorrectValuesArePassed()

@@ -10,42 +10,42 @@ using System.Threading.Tasks;
 
 namespace Langcademy.Services.Data
 {
-    //public class TopicSubmissionsService : ITopicSubmissionsService
-    //{
-    //    private readonly IIdentifierProvider identifierProvider;
-    //    private readonly IDbRepository<TopicSubmission> submissions;
+    public class TopicSubmissionsService : ITopicSubmissionsService
+    {
+        private readonly IIdentifierProvider identifierProvider;
+        private readonly IDbRepository<TopicSubmission> submissions;
 
-    //    public TopicSubmissionsService(IDbRepository<TopicSubmission> submissions, IIdentifierProvider identifierProvider)
-    //    {
-    //        this.submissions = submissions;
-    //        this.identifierProvider = identifierProvider;
-    //    }
+        public TopicSubmissionsService(IDbRepository<TopicSubmission> submissions, IIdentifierProvider identifierProvider)
+        {
+            this.submissions = submissions;
+            this.identifierProvider = identifierProvider;
+        }
 
-    //    public void Add(TopicSubmission topic)
-    //    {
-    //        if (topic == null)
-    //        {
-    //            throw new ArgumentNullException("Topic should not be null");
-    //        }
+        public void Add(TopicSubmission submission)
+        {
+            if (submission == null)
+            {
+                throw new ArgumentNullException("Submission should not be null");
+            }
 
-    //        this.topics.Add(topic);
-    //        this.topics.Save();
-    //    }
+            this.submissions.Add(submission);
+            this.submissions.Save();
+        }
 
-    //    public TopicSubmission GetById(int id)
-    //    {
-    //        var topic = this.topics.GetById(id);
-    //        if (topic == null)
-    //        {
-    //            throw new ArgumentNullException("Topic with the provided id is not found");
-    //        }
+        public TopicSubmission GetById(int id)
+        {
+            var submission = this.submissions.GetById(id);
+            if (submission == null)
+            {
+                throw new ArgumentNullException("Submission with the provided id is not found");
+            }
 
-    //        return topic;
-    //    }
+            return submission;
+        }
 
-    //    public IQueryable<TopicSubmission> GetAllTopicSubmissions()
-    //    {
-    //        return this.topics.All();
-    //    }
-    //}
+        public IQueryable<TopicSubmission> GetAllTopicSubmissions()
+        {
+            return this.submissions.All();
+        }
+    }
 }

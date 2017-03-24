@@ -1,11 +1,17 @@
 ﻿@model IEnumerable<Langcademy.Data.Models.Topic>
 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+
 <div class="panel">
     @foreach (var topic in Model)
     {
-        @Html.DisplayFor(c => topic.Name)
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">@topic.Name</h3>
+            </div>
+            <div class="panel-body">
+                @Html.ActionLink("Details", "Details", new { id = @topic.Id })
+                @topic.Description
+            </div>
+        </div>
     }
 </div>

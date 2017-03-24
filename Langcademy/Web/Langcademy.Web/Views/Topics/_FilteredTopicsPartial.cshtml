@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Langcademy.Data.Models.Topic>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="panel">
+    @foreach (var topic in Model)
+    {
+        @Html.DisplayFor(c => topic.Name)
+    }
+</div>

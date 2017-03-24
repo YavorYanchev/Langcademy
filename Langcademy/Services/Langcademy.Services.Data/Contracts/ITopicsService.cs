@@ -18,5 +18,7 @@ namespace Langcademy.Services.Data.Contracts
         //void DeleteTopic(Topic topicToDelete);
 
         void HardDeleteTopicById(int id);
+
+        IEnumerable<Topic> GetTopicByNameOrDescription(string searchTerm);
     }
 }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Langcademy.Web.Infrastructure;
 
 namespace Langcademy.Web.Controllers
 {
@@ -25,17 +26,20 @@ namespace Langcademy.Web.Controllers
         // GET: Topics
         public ActionResult Index()
         {
-            var allTopics = this.topics.GetAllTopics();
-            return View(allTopics);
+            //return View(allTopics);
+            // return this.PartialView("_AllTopicsPartial", allTopics);
+            return this.View();
         }
 
-        //public ActionResult Index(int id)
-        //{
-        //    return View();
-        //}
+        [HttpGet]
+        [ChildActionOnly]
+        public ActionResult AllTopics()
+        {
+            var allTopics = this.topics.GetAllTopics();
+            return this.PartialView("_AllTopicsPartial", allTopics);
 
-        //TODO: Uncomment this
-        //[Authorize]
+        }
+
         [Authorize]
         public ActionResult Create()
         {
@@ -151,14 +155,22 @@ namespace Langcademy.Web.Controllers
             return View();
         }
 
-    }
+        [HttpPost]
+        [AjaxOnly]
+        public ActionResult FilteredTopics(string searchTerm)
+        {
+            if (string.IsNullOrEmpty(searchTerm))
+            {
+                return this.AllTopics();
+               // return this.View("Index");
+            }
+            else
+            {
+                var filteredTopics = this.topics.GetTopicByNameOrDescription(searchTerm);
+                return this.PartialView("_FilteredTopicsPartial", filteredTopics);
+            }
+        }
 
-    public class TranslationResult
-    {
-        public string Text { get; set; }
 
-        public string WrongTranslation { get; set; }
-
-        public string CorrectTranslation{ get; set; }
     }
 }

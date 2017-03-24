@@ -54,5 +54,13 @@ namespace Langcademy.Services.Data
             this.topics.Save();
         }
 
+        public IEnumerable<Topic> GetTopicByNameOrDescription(string searchTerm)
+        {
+            return string.IsNullOrEmpty(searchTerm) ? this.topics.All().ToList()
+                : this.topics.All().Where(t =>
+                (string.IsNullOrEmpty(t.Name) ? false : t.Name.Contains(searchTerm))
+                ||
+                (string.IsNullOrEmpty(t.Description) ? false : t.Description.Contains(searchTerm))).ToList();
+        }
     }
 }

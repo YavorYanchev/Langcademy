@@ -221,6 +221,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HttpModules\CultureModule.cs" />
+    <Compile Include="Infrastructure\AjaxOnlyAttribute.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
@@ -289,6 +290,8 @@
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -335,10 +338,13 @@
     <Content Include="Views\Topics\Details.cshtml" />
     <Content Include="Views\Topics\Solve.cshtml" />
     <Content Include="Views\Topics\Results.cshtml" />
+    <Content Include="Views\Topics\_FilteredTopicsPartial.cshtml" />
+    <Content Include="Views\Topics\_AllTopicsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Admin\" />
+    <Folder Include="ViewModels\Topics\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -1,19 +1,39 @@
 ﻿@model IEnumerable<Langcademy.Data.Models.Topic>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Topics";
 }
 
 <h2>All topics</h2>
 
-@foreach (var item in Model)
-{
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">@item.Name</h3>
-        </div>
-        <div class="panel-body">
-            @Html.ActionLink("Details","Details",new { id=@item.Id})
-            @item.Description
-        </div>
-    </div>
+<div class="panel">
+    @using (Ajax.BeginForm("FilteredTopics", new { }, new AjaxOptions()
+    {
+        HttpMethod="Post",
+        UpdateTargetId="topicPanel",
+        InsertionMode = InsertionMode.Replace
+    },new {id="ajaxForm"}
+    ))
+    {
+        <input type="text" name="searchTerm" class="form-control" placeholder="Find topic" autocomplete="off" />
+
+        @*<input type="submit" value="Search" />*@
+    }
+</div>
+
+<div id="topicPanel" class="panel">
+    @Html.Action("AllTopics")
+</div>
+
+
+
+@section scripts {
+    <script>
+        $(function () {
+            $('[name="searchTerm"]').keyup(function () {
+                $('#ajaxForm').submit()
+            })
+        })
+    </script>
 }
+
+@*//*******************************@

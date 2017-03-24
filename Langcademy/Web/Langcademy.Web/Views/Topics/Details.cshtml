@@ -3,72 +3,28 @@
 @{
     ViewBag.Title = "Details";
 }
+<h2 class="text-center">Details</h2>
 
-<h2>Details</h2>
+<div class="container">
+    <div class="row">
 
-<div>
-   
-    <hr />
-    <h2>
-        @Html.DisplayFor(model=>model.Name)
-    </h2>
+        <div class="col-md-6">
+            <img class="img-responsive" src="~/Content/Images/Langcademy-logo.png" alt="logo">
+        </div>
 
-    <p>
-        @Html.DisplayFor(model => model.Description)
-    </p>
+        <div class="col-md-6">
+            <h3>@Html.DisplayFor(model => model.Name)</h3>
+            <p>Description: @Html.DisplayFor(model => model.Description)</p>
+            <p>Number of words: @Html.DisplayFor(model=>model.NumberOfWordsToTranslate)</p>
+            <p>Created by <p>Created by: @Html.DisplayFor(model =>model.Creator.UserName)</p>
+            <p>Created on: @Html.DisplayFor(model =>model.CreatedOn)</p>
+  
+  
+            <hr />
+                @Html.ActionLink("Solve", "Solve","Topics", new { id = Model.Id },new { @class = "btn btn-primary" })
 
-    <p>
-        @Html.ActionLink("Solve", "Solve", new { id = Model.Id })
-        
-    </p>
+            
+        </div>
 
-    @*<dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>*@
-
-        @*<dt>
-            @Html.DisplayNameFor(model => model.FirstMidName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FirstMidName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EnrollmentDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EnrollmentDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Enrollments)
-        </dt>*@
-        @*<dd>
-            <table class="table">
-                <tr>
-                    <th>Course Title</th>
-                    <th>Grade</th>
-                </tr>
-                @foreach (var item in Model.WordsToTranslate)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Text)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Translation)
-                        </td>
-                    </tr>
-                }
-            </table>
-        </dd>*@
-
-    @*</dl>*@
+    </div>
 </div>
-

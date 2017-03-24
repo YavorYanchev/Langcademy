@@ -3,15 +3,24 @@
 
 <div class="panel">
     @foreach (var topic in Model)
-    {
+    {<div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">@topic.Name</h3>
+                <h4><i class="fa fa-book"></i> @topic.Name</h4>
             </div>
             <div class="panel-body">
-                @Html.ActionLink("Details", "Details", new { id = @topic.Id })
-                @topic.Description
+                <p>Description: @topic.Description</p>
+                <p>Number of words: @topic.NumberOfWordsToTranslate</p>
+                <p>Created by: @topic.Creator.UserName</p>
+                <p>Created on: @topic.CreatedOn</p>
+                @*@Html.ActionLink("LinkText", "FooAction", "FooController", null, new { @class = "btn btn-info" })*@
+
+                @Html.ActionLink("Details", "Details", new { id = @topic.Id, @class = "btn btn-info" })
+
+
+                @*<a href="#" class="btn btn-default">Learn More</a>*@
             </div>
         </div>
+    </div>
     }
 </div>

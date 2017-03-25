@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Langcademy.Web.Infrastructure;
+using Langcademy.Web.ViewModels.Topics;
+using AutoMapper.QueryableExtensions;
 
 namespace Langcademy.Web.Controllers
 {
@@ -35,7 +37,15 @@ namespace Langcademy.Web.Controllers
         [ChildActionOnly]
         public ActionResult AllTopics()
         {
-            var allTopics = this.topics.GetAllTopics();
+            var allTopics = this.topics.GetAllTopics().ToList()
+                //.ProjectTo<TopicViewModel>();
+                .Select(c => new TopicViewModel(c));
+
+            //var viewModel = new TopicsListViewModel()
+            //{
+            //    Topics = allTopics
+            //};
+
             return this.PartialView("_AllTopicsPartial", allTopics);
 
         }

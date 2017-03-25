@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Langcademy.Data.Models.Topic>
+﻿@model IEnumerable<Langcademy.Web.ViewModels.Topics.TopicViewModel>
 
 
 <div class="container">
@@ -9,18 +9,6 @@
 
         @foreach (var topic in Model)
         {
-            @*<div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">@topic.Name</h3>
-                </div>
-                <div class="panel-body">
-                    @Html.ActionLink("Details", "Details", new { id = @topic.Id })
-                    @topic.Description
-                </div>
-            </div>*@
-
-
-
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -29,7 +17,7 @@
                     <div class="panel-body">
                         <p>Description: @topic.Description</p>
                         <p>Number of words: @topic.NumberOfWordsToTranslate</p>
-                        <p>Created by: @topic.Creator.UserName</p>
+                        <p>@*Created by: @topic.Creator.UserName*@</p>
                         <p>Created on: @topic.CreatedOn</p>
                         @*@Html.ActionLink("LinkText", "FooAction", "FooController", null, new { @class = "btn btn-info" })*@
 

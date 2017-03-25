@@ -26,7 +26,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="@i">@Model.ForTopic.WordsToTranslate[i].Text</label>
-                    <input type="text" name="SelectedTranslations[@i]" class="form-control" id="@i" value="@Model.ForTopic.WordsToTranslate[i].Translation[0]">
+                    <input type="text" name="SelectedTranslations[@i]" class="form-control" id="@i" value="@Model.ForTopic.WordsToTranslate[i].Translation[0]" autocomplete="off">
                 </div>
             </div>
         }

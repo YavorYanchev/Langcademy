@@ -241,6 +241,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\Topics\TopicDetailsViewModel.cs" />
     <Compile Include="ViewModels\Topics\TopicsListViewModel.cs" />
     <Compile Include="ViewModels\Topics\TopicViewModel.cs" />
   </ItemGroup>

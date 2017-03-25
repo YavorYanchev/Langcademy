@@ -72,7 +72,10 @@ namespace Langcademy.Web.Controllers
         public ActionResult Details(int id)
         {
             var topic = this.topics.GetById(id);
-            return View(topic);
+
+            var topicViewModel = new TopicDetailsViewModel(topic);
+
+            return View(topicViewModel);
         }
 
         public ActionResult Solve(int id)

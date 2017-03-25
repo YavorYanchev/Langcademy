@@ -1,4 +1,4 @@
-﻿@model Langcademy.Data.Models.Topic
+﻿@model Langcademy.Web.ViewModels.Topics.TopicDetailsViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -16,7 +16,7 @@
             <h3>@Html.DisplayFor(model => model.Name)</h3>
             <p>Description: @Html.DisplayFor(model => model.Description)</p>
             <p>Number of words: @Html.DisplayFor(model=>model.NumberOfWordsToTranslate)</p>
-            <p>Created by <p>Created by: @Html.DisplayFor(model =>model.Creator.UserName)</p>
+            <p>Created by: @Html.DisplayFor(model =>model.Creator)</p>
             <p>Created on: @Html.DisplayFor(model =>model.CreatedOn)</p>
   
   

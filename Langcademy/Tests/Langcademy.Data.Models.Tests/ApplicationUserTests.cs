@@ -15,6 +15,17 @@ namespace Langcademy.Data.Models.Tests
     public class ApplicationUserTests
     {
         [Test]
+        public void ApplicationUser_ShouldNotBeNull()
+        {
+
+            var appUser = new ApplicationUser();
+
+
+            Assert.IsNotNull(appUser);
+
+        }
+
+        [Test]
         public void ApplicationUser_ShouldBeInstanceOfApplicationUser()
         {
 
@@ -116,6 +127,84 @@ namespace Langcademy.Data.Models.Tests
 
             //Assert
             Assert.IsNotNull(attribute);
+        }
+        [Test]
+        public void ApplicationUser_LevelShouldInitializeCorrectly()
+        {
+            //Arrange
+            var appUser = new ApplicationUser();
+            var level = 1;
+            
+            //Act
+            appUser.Level = level;
+
+            //Assert
+            Assert.AreEqual(level, appUser.Level);
+
+        }
+        [TestCase(true)]
+        [TestCase(false)]
+        public void ApplicationUser_IsDeletedShouldInitializeCorrectly(bool check)
+        {
+            //Arrange
+            var appUser = new ApplicationUser();
+
+            //Act
+            appUser.IsDeleted = check;
+
+            //Assert
+            Assert.AreEqual(check, appUser.IsDeleted);
+
+        }
+        [TestCase("03/26/2017")]
+        [TestCase("12/29/2000")]
+        [TestCase("12/12/2012")]
+        [TestCase(null)]
+
+        public void ApplicationUser_DeletedOnShouldInitializeCorrectly(DateTime date)
+        {
+            //Arrange
+            var appUser = new ApplicationUser();
+
+            //Act
+            appUser.DeletedOn = date;
+
+            //Assert
+            Assert.AreEqual(date, appUser.DeletedOn);
+           
+        }
+
+        [TestCase("03/30/2017")]
+        [TestCase("12/23/2000")]
+        [TestCase("12/11/2012")]
+        public void ApplicationUser_CreatedOnShouldInitializeCorrectly(DateTime date)
+        {
+            //Arrange
+            var appUser = new ApplicationUser();
+
+            //Act
+            appUser.CreatedOn = date;
+
+            //Assert
+            Assert.AreEqual(date, appUser.CreatedOn);
+
+        }
+
+        [TestCase("03/10/2017")]
+        [TestCase("12/10/2000")]
+        [TestCase("12/09/2012")]
+        [TestCase(null)]
+        public void ApplicationUser_ModifiedOnShouldInitializeCorrectly(DateTime date)
+        {
+            //Arrange
+            var appUser = new ApplicationUser();
+
+            //Act
+            appUser.CreatedOn = date;
+
+            //Assert
+            Assert.AreEqual(date, appUser.CreatedOn);
+
         }
 
     }

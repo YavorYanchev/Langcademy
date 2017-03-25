@@ -130,13 +130,7 @@ namespace Langcademy.Web.Controllers
             this.TempData["time-elapsed-seconds"] = elapsedTimeInSeconds;
             this.TempData["result"] = percent + "% correct answers";
 
-            //if(this.User.Identity.IsAuthenticated)
-            //{
-            //    var id = this.HttpContext.User.Identity.GetUserId();
-            //    var user = users.GetById(id);
-            //    user.FirstOrDefault().Topics.Add(topic);
-            //    var all = user.FirstOrDefault().Topics;
-            //}
+          
 
             if (User.Identity.IsAuthenticated)
             {
@@ -163,7 +157,6 @@ namespace Langcademy.Web.Controllers
         {
             var data = this.TempData["result"];
             var time = elapsed;
-            //var arr = this.TempData["wrong"];
             
             return View();
         }

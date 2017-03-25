@@ -9,7 +9,7 @@ using Langcademy.Data.Common;
 
 namespace Langcademy.Services.Data
 {
-    class UsersService : IUsersService
+    public class UsersService : IUsersService
     {
         private readonly IDbRepository<ApplicationUser> users;
 

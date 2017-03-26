@@ -83,6 +83,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AreaAdminTests\TopicsAdministrationControllerTests\Delete_Should.cs" />
     <Compile Include="AreaAdminTests\TopicsAdministrationControllerTests\Index_Should.cs" />
     <Compile Include="DummyTestsForController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

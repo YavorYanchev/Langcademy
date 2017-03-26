@@ -101,6 +101,7 @@
     <Compile Include="ManageControllerTests\SetPassword_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TopicsControllerTests\AllTopics_Should.cs" />
+    <Compile Include="TopicsControllerTests\Constructor_Should.cs" />
     <Compile Include="TopicsControllerTests\Create_Should.cs" />
     <Compile Include="TopicsControllerTests\Details_Should.cs" />
     <Compile Include="TopicsControllerTests\FilteredTopics_Should.cs" />

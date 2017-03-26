@@ -84,8 +84,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountControllerTests\ConfirmEmail_Should.cs" />
+    <Compile Include="AccountControllerTests\ExternalLoginFailure_Should.cs" />
+    <Compile Include="AccountControllerTests\ForgotPasswordConfirmation.cs" />
+    <Compile Include="AccountControllerTests\ForgotPassword_Should.cs" />
     <Compile Include="AccountControllerTests\Login_Should.cs" />
     <Compile Include="AccountControllerTests\Register_Should.cs" />
+    <Compile Include="AccountControllerTests\ResetPasswordConfirmation_Should.cs" />
+    <Compile Include="AccountControllerTests\ResetPassword_Should.cs" />
     <Compile Include="AreaAdminTests\SubmissionsAdministrationControllerTests\Index_Should.cs" />
     <Compile Include="AreaAdminTests\TopicsAdministrationControllerTests\Delete_Should.cs" />
     <Compile Include="AreaAdminTests\TopicsAdministrationControllerTests\Index_Should.cs" />

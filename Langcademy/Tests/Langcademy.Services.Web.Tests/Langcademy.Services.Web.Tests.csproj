@@ -58,6 +58,7 @@
     <Compile Include="TopicsServiceTests\Add_Should.cs" />
     <Compile Include="TopicsServiceTests\GetAllTopics_Should.cs" />
     <Compile Include="TopicsServiceTests\GetById_Should.cs" />
+    <Compile Include="TopicsServiceTests\GetTopicByNameOrDescription_Should.cs" />
     <Compile Include="TopicsServiceTests\HardDeleteTopicById_Should.cs" />
     <Compile Include="TopicSubmissionsServiceTests\Add_Should.cs" />
     <Compile Include="UsersServiceTests\GetAll_Should.cs" />

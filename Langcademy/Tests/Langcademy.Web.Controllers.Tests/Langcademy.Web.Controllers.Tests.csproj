@@ -83,6 +83,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountControllerTests\ConfirmEmail_Should.cs" />
+    <Compile Include="AccountControllerTests\Login_Should.cs" />
+    <Compile Include="AccountControllerTests\Register_Should.cs" />
     <Compile Include="AreaAdminTests\SubmissionsAdministrationControllerTests\Index_Should.cs" />
     <Compile Include="AreaAdminTests\TopicsAdministrationControllerTests\Delete_Should.cs" />
     <Compile Include="AreaAdminTests\TopicsAdministrationControllerTests\Index_Should.cs" />

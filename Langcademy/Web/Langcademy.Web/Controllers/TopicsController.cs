@@ -18,7 +18,7 @@ namespace Langcademy.Web.Controllers
         private readonly IUsersService users;
         private readonly ITopicSubmissionsService submissions;
 
-        public TopicsController(ITopicsService topics,IUsersService users, ITopicSubmissionsService submissions)
+        public TopicsController(ITopicsService topics, IUsersService users, ITopicSubmissionsService submissions)
         {
             this.topics = topics;
             this.users = users;
@@ -53,20 +53,16 @@ namespace Langcademy.Web.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            return View();
+            return this.View();
         }
 
         [HttpPost]
         [Authorize]
         public ActionResult Create(Topic topic)
         {
-            //topic.User = this.User.Identity;
-            var id = this.HttpContext.User.Identity.GetUserId();
-            var user = users.GetById(id);
-            topic.CreatorId = id;
-            topic.Creator = user.FirstOrDefault();
+            topic.CreatorId = this.User.Identity.GetUserId();
             this.topics.Add(topic);
-            return RedirectToAction("Index");
+            return this.RedirectToAction("Index");
         }
 
         public ActionResult Details(int id)
@@ -84,23 +80,23 @@ namespace Langcademy.Web.Controllers
             this.ViewBag.NumWords = topic.WordsToTranslate.Count;
             var ts = new TopicSubmission()
             {
-                
+
                 ForTopic = topic
             };
             return View(ts);
         }
 
         [HttpPost]
-        public ActionResult Solve(int id,TopicSubmission topicSubmission, string elapsedTime,int elapsedTimeInSeconds)
+        public ActionResult Solve(int id, TopicSubmission topicSubmission, string elapsedTime, int elapsedTimeInSeconds)
         {
             //var idFromUrl = int.Parse(this.Request.Url.AbsolutePath.Split('/').Last());
-           var topic = this.topics.GetById(id);
+            var topic = this.topics.GetById(id);
             topicSubmission.ForTopic = topic;
             topicSubmission.ForTopicId = topic.Id;
-         
+
             var correctTopic = topicSubmission.ForTopic;
-            
-            
+
+
 
             int correctAnswers = 0;
             int numberWords = correctTopic.WordsToTranslate.Count;
@@ -125,13 +121,13 @@ namespace Langcademy.Web.Controllers
             }
             //int num = topic.WordsToTranslate.Count;
 
-            double percent = (correctAnswers * 100 ) / numberWords;
+            double percent = (correctAnswers * 100) / numberWords;
             this.TempData["time-elapsed"] = elapsedTime;
             this.TempData["time-elapsed-seconds"] = elapsedTimeInSeconds;
             this.TempData["result"] = percent + "% correct answers";
             this.TempData["percentage"] = percent;
 
-          
+
 
             if (User.Identity.IsAuthenticated)
             {
@@ -149,16 +145,16 @@ namespace Langcademy.Web.Controllers
 
             }
 
-                //this.TempData["wrong"] = wrongTranslations.ToArray();
-                return RedirectToAction("Results");
+            //this.TempData["wrong"] = wrongTranslations.ToArray();
+            return RedirectToAction("Results");
         }
 
-        
+
         public ActionResult Results(string elapsed)
         {
             var data = this.TempData["result"];
             var time = elapsed;
-            
+
             return View();
         }
 
@@ -169,7 +165,7 @@ namespace Langcademy.Web.Controllers
             if (string.IsNullOrEmpty(searchTerm))
             {
                 return this.AllTopics();
-               // return this.View("Index");
+                // return this.View("Index");
             }
             else
             {

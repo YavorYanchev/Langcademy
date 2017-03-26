@@ -22,7 +22,7 @@ namespace Langcademy.Web.Areas.Admin.Controllers
         public ActionResult Index()
         {
             var allSubmissions = this.submissions.GetAllTopicSubmissions();
-            return View(allSubmissions);
+            return this.View(allSubmissions);
         }
     }
 }

@@ -129,6 +129,7 @@ namespace Langcademy.Web.Controllers
             this.TempData["time-elapsed"] = elapsedTime;
             this.TempData["time-elapsed-seconds"] = elapsedTimeInSeconds;
             this.TempData["result"] = percent + "% correct answers";
+            this.TempData["percentage"] = percent;
 
           
 

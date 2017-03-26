@@ -8,7 +8,47 @@
 
 @if (TempData["result"] != null)
 {
-    <h1>
+
+
+    if ((double)(TempData["percentage"]) < 50)
+    {
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h3 class="panel-title">Oh no you got only @TempData["result"]</h3>
+        </div>
+        <div class="panel-body">
+            <p>Time:@this.TempData["time-elapsed"] </p>
+            <p>Total seconds: @this.TempData["time-elapsed-seconds"] </p>
+        </div>
+    </div>
+    }
+    else if ((double)(TempData["percentage"]) < 75)
+    {
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Not bad!You got @TempData["result"]</h3>
+            </div>
+            <div class="panel-body">
+                <p>Time:@this.TempData["time-elapsed"] </p>
+                <p>Total seconds: @this.TempData["time-elapsed-seconds"] </p>
+            </div>
+        </div>
+
+    }
+    else
+    {
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Excellent!You got @TempData["result"]</h3>
+            </div>
+            <div class="panel-body">
+                <p>Time:@this.TempData["time-elapsed"] </p>
+                <p>Total seconds: @this.TempData["time-elapsed-seconds"] </p>
+            </div>
+        </div>
+
+    }
+    @*<h1>
         @TempData["result"]
     </h1>
     <p>
@@ -16,7 +56,7 @@
 
     </p>
 
-    <p>Total seconds: @this.TempData["time-elapsed-seconds"] </p>
+    <p>Total seconds: @this.TempData["time-elapsed-seconds"] </p>*@
 
     @*if (TempData["wrong"] != null)
         {

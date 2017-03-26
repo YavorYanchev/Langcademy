@@ -80,24 +80,19 @@ namespace Langcademy.Web.Controllers
             this.ViewBag.NumWords = topic.WordsToTranslate.Count;
             var ts = new TopicSubmission()
             {
-
                 ForTopic = topic
             };
-            return View(ts);
+            return this.View(ts);
         }
 
         [HttpPost]
         public ActionResult Solve(int id, TopicSubmission topicSubmission, string elapsedTime, int elapsedTimeInSeconds)
         {
-            //var idFromUrl = int.Parse(this.Request.Url.AbsolutePath.Split('/').Last());
             var topic = this.topics.GetById(id);
             topicSubmission.ForTopic = topic;
             topicSubmission.ForTopicId = topic.Id;
 
             var correctTopic = topicSubmission.ForTopic;
-
-
-
             int correctAnswers = 0;
             int numberWords = correctTopic.WordsToTranslate.Count;
 
@@ -119,7 +114,6 @@ namespace Langcademy.Web.Controllers
                     //});
                 }
             }
-            //int num = topic.WordsToTranslate.Count;
 
             double percent = (correctAnswers * 100) / numberWords;
             this.TempData["time-elapsed"] = elapsedTime;
@@ -127,35 +121,27 @@ namespace Langcademy.Web.Controllers
             this.TempData["result"] = percent + "% correct answers";
             this.TempData["percentage"] = percent;
 
-
-
-            if (User.Identity.IsAuthenticated)
+            if (this.User.Identity.IsAuthenticated)
             {
+                var userId = this.User.Identity.GetUserId();
 
-                var userId = this.HttpContext.User.Identity.GetUserId();
-                var user = users.GetById(userId);
-                //user.FirstOrDefault().Submissions.Add(topicSubmission);
                 topicSubmission.ByUserId = userId;
-                topicSubmission.ByUser = user.FirstOrDefault();
-
                 topicSubmission.TimeElapsed = elapsedTime;
                 topicSubmission.TimeElapsedInSeconds = elapsedTimeInSeconds;
-
+                topicSubmission.PercentageCorrectTranslations = percent;
                 this.submissions.Add(topicSubmission);
-
             }
 
             //this.TempData["wrong"] = wrongTranslations.ToArray();
-            return RedirectToAction("Results");
+            return this.RedirectToAction("Results");
         }
-
 
         public ActionResult Results(string elapsed)
         {
             var data = this.TempData["result"];
             var time = elapsed;
 
-            return View();
+            return this.View();
         }
 
         [HttpPost]
@@ -165,7 +151,6 @@ namespace Langcademy.Web.Controllers
             if (string.IsNullOrEmpty(searchTerm))
             {
                 return this.AllTopics();
-                // return this.View("Index");
             }
             else
             {

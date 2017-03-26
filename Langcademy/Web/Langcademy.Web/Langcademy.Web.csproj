@@ -343,6 +343,7 @@
     <Content Include="Views\Topics\Results.cshtml" />
     <Content Include="Views\Topics\_FilteredTopicsPartial.cshtml" />
     <Content Include="Views\Topics\_AllTopicsPartial.cshtml" />
+    <Content Include="Views\Shared\_AdminPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />

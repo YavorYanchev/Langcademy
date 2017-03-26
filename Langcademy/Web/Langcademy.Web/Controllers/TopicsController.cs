@@ -71,7 +71,7 @@ namespace Langcademy.Web.Controllers
 
             var topicViewModel = new TopicDetailsViewModel(topic);
 
-            return View(topicViewModel);
+            return this.View(topicViewModel);
         }
 
         public ActionResult Solve(int id)

@@ -28,8 +28,6 @@ namespace Langcademy.Web.Controllers
         // GET: Topics
         public ActionResult Index()
         {
-            //return View(allTopics);
-            // return this.PartialView("_AllTopicsPartial", allTopics);
             return this.View();
         }
 

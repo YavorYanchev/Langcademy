@@ -1,4 +1,5 @@
-﻿using Langcademy.Services.Data.Contracts;
+﻿using Langcademy.Data.Models;
+using Langcademy.Services.Data.Contracts;
 using Moq;
 using NUnit.Framework;
 using System;
@@ -41,5 +42,7 @@ namespace Langcademy.Web.Controllers.Tests.TopicsControllerTests
             // Assert
             Assert.IsNotNull(attribute);
         }
+
+      
     }
 }

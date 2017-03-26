@@ -1,5 +1,5 @@
-﻿using Langcademy.Services.Data.Contracts;
-using Langcademy.Web.ViewModels.Topics;
+﻿using Langcademy.Data.Models;
+using Langcademy.Services.Data.Contracts;
 using Moq;
 using NUnit.Framework;
 using System;
@@ -12,7 +12,7 @@ using TestStack.FluentMVCTesting;
 namespace Langcademy.Web.Controllers.Tests.TopicsControllerTests
 {
     [TestFixture]
-    public class Details_Should
+    public class Solve_Should
     {
         [TestCase(9876)]
         public void ReturnDefaulView(int id)
@@ -25,9 +25,11 @@ namespace Langcademy.Web.Controllers.Tests.TopicsControllerTests
                 usersServiceMock.Object,
                 submissionsServiceMock.Object);
 
+            topicServiceMock.Setup(t => t.GetById(id)).Returns(new Topic() { NumberOfWordsToTranslate = 3 });
+
             // Act & Assert
             topicController
-                .WithCallTo(t => t.Details(id))
+                .WithCallTo(t => t.Solve(id))
                 .ShouldRenderDefaultView();
         }
 
@@ -44,27 +46,12 @@ namespace Langcademy.Web.Controllers.Tests.TopicsControllerTests
                 usersServiceMock.Object,
                 submissionsServiceMock.Object);
 
+            topicServiceMock.Setup(t => t.GetById(id)).Returns(new Topic() { NumberOfWordsToTranslate = 3 });
             // Act
-            topicController.Details(id);
+            topicController.Solve(id);
 
             // Assert
             topicServiceMock.Verify(t => t.GetById(id), Times.Once);
-        }
-
-        [TestCase(9876)]
-        public void UseTopicDetailViewModel(int id)
-        {
-            // Arrange
-            var topicServiceMock = new Mock<ITopicsService>();
-            var usersServiceMock = new Mock<IUsersService>();
-            var submissionsServiceMock = new Mock<ITopicSubmissionsService>();
-            var topicController = new TopicsController(
-                topicServiceMock.Object,
-                usersServiceMock.Object,
-                submissionsServiceMock.Object);
-
-            topicController.WithCallTo(t => t.Details(id))
-                .ShouldRenderDefaultView().WithModel<TopicDetailsViewModel>();
         }
     }
 }

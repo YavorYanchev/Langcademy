@@ -75,7 +75,7 @@ namespace Langcademy.Web.Controllers
         public ActionResult Solve(int id)
         {
             var topic = this.topics.GetById(id);
-            this.ViewBag.NumWords = topic.WordsToTranslate.Count;
+            this.ViewBag.NumWords = topic.NumberOfWordsToTranslate;
             var ts = new TopicSubmission()
             {
                 ForTopic = topic

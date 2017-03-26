@@ -25,7 +25,7 @@ namespace Langcademy.Web.Areas.Admin.Controllers
         public ActionResult Index()
         {
             var allTopics = this.topics.GetAllTopics();
-            return View(allTopics);
+            return this.View(allTopics);
         }
 
         public ActionResult Delete(int id)

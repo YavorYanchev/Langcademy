@@ -42,5 +42,34 @@ namespace Langcademy.Services.Web.Tests.TopicSubmissionsServiceTests
             var exc = Assert.Throws<ArgumentNullException>(() => submissionService.GetById(invalidId));
             StringAssert.Contains("not found", exc.Message);
         }
+
+        [Test]
+        public void ReturnTopicSubmissionInstance()
+        {
+            // Arrange
+            var mockedRepository = new Mock<IDbRepository<TopicSubmission>>();
+            var mockedIdentifier = new Mock<IIdentifierProvider>();
+            var submissionService = new TopicSubmissionsService(mockedRepository.Object, mockedIdentifier.Object);
+            var mockedSubmission = new Mock<TopicSubmission>();
+            mockedRepository.Setup(m => m.GetById(1)).Returns(mockedSubmission.Object);
+            // Act & Assert
+
+            Assert.IsInstanceOf<TopicSubmission>(submissionService.GetById(1));
+        }
+
+        [Test]
+        public void ThrowArgumentNullExceptionWhenSubmissionIsNull()
+        {
+            // Arrange
+            var mockedRepository = new Mock<IDbRepository<TopicSubmission>>();
+            var mockedIdentifier = new Mock<IIdentifierProvider>();
+            var submissionService = new TopicSubmissionsService(mockedRepository.Object, mockedIdentifier.Object);
+            var mockedTopic = new Mock<TopicSubmission>();
+            mockedRepository.Setup(m => m.GetById(1)).Returns((TopicSubmission)null);
+            // Act & Assert
+
+            Assert.Throws<ArgumentNullException>(() => submissionService.GetById(1));
+            // Assert.IsInstanceOf<Topic>(topicService.GetById(1));
+        }
     }
 }

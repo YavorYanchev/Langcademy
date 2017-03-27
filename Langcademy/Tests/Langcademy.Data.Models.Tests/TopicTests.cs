@@ -1,4 +1,6 @@
 ﻿using NUnit.Framework;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Langcademy.Data.Models.Tests
 {
@@ -59,6 +61,16 @@ namespace Langcademy.Data.Models.Tests
             // Assert
             Assert.AreEqual(text, topic.CreatorId);
 
+        }
+
+        [Test]
+        public void WordsToTranslateShouldReturnIListOfWordToTranslate()
+        {
+            // Arrange
+            var topic = new Topic();
+
+            //Act & Assert
+            Assert.IsInstanceOf<IList<WordToTranslate>>(topic.WordsToTranslate);
         }
 
     }

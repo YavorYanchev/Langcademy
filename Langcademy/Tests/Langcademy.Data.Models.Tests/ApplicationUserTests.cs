@@ -142,6 +142,22 @@ namespace Langcademy.Data.Models.Tests
             Assert.AreEqual(level, appUser.Level);
 
         }
+
+        [TestCase(24)]
+        [TestCase(1)]
+        public void ApplicationUser_LevelShouldBeInteger(int number)
+        {
+            //Arrange
+            var appUser = new ApplicationUser();
+
+            //Act
+            appUser.Level = number;
+
+            //Assert
+            Assert.IsInstanceOf<int>(appUser.Level);
+
+        }
+
         [TestCase(true)]
         [TestCase(false)]
         public void ApplicationUser_IsDeletedShouldInitializeCorrectly(bool check)
@@ -206,6 +222,7 @@ namespace Langcademy.Data.Models.Tests
             Assert.AreEqual(date, appUser.CreatedOn);
 
         }
+        
 
     }
 }

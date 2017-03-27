@@ -256,6 +256,7 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Images\Langcademy-logo.png" />
     <Content Include="Content\Images\Langcademy-small.png" />
+    <Content Include="ErrorPages\400.html" />
     <Content Include="ErrorPages\401.html" />
     <Content Include="ErrorPages\403.html" />
     <Content Include="ErrorPages\404.html" />
